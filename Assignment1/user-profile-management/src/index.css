@@ -8,4 +8,9 @@
   html {
     font-family: "Inter", sans-serif;
   }
+
+  ::selection {
+    background-color: #03045e;
+    color: white;
+  }
 }

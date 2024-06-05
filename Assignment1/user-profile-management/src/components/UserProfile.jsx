@@ -76,7 +76,7 @@ const UserProfile = ({ isEditing, onEdit, onSave, onCancel }) => {
             <div className="mb-3">
               <label className="block text-darkBlue font-bold">Username:</label>
               <input
-                className="w-full p-2 border border-gray-300 rounded bg-lightBlue text-darkBlue font-medium"
+                className="w-full p-2 border border-darkBlue rounded bg-lightBlue text-darkBlue font-medium"
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -86,7 +86,7 @@ const UserProfile = ({ isEditing, onEdit, onSave, onCancel }) => {
             <div className="mb-3">
               <label className="block text-darkBlue font-bold">Email:</label>
               <input
-                className="w-full p-2 border border-gray-300 rounded bg-lightBlue text-darkBlue font-medium"
+                className="w-full p-2 border border-darkBlue rounded bg-lightBlue text-darkBlue font-medium"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -98,7 +98,7 @@ const UserProfile = ({ isEditing, onEdit, onSave, onCancel }) => {
                 Contact Information:
               </label>
               <input
-                className="w-full p-2 border border-gray-300 rounded bg-lightBlue text-darkBlue font-medium"
+                className="w-full p-2 border border-darkBlue rounded bg-lightBlue text-darkBlue font-medium"
                 type="text"
                 value={contactNumber}
                 onChange={(e) => setContactNumber(e.target.value)}
@@ -108,7 +108,7 @@ const UserProfile = ({ isEditing, onEdit, onSave, onCancel }) => {
             <div className="mb-3">
               <label className="block text-darkBlue font-bold">Address:</label>
               <input
-                className="w-full p-2 border border-gray-300 rounded bg-lightBlue text-darkBlue font-medium"
+                className="w-full p-2 border border-darkBlue rounded bg-lightBlue text-darkBlue font-medium"
                 type="text"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
