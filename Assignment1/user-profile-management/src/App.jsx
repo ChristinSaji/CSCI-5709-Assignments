@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import UserProfile from './components/UserProfile';
+import React, { useState } from "react";
+import UserProfile from "./components/UserProfile";
 
 const App = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -9,7 +9,7 @@ const App = () => {
   };
 
   const handleSave = (updatedProfile) => {
-    console.log('Updated Profile:', updatedProfile);
+    console.log("Updated Profile:", updatedProfile);
     setIsEditing(false);
   };
 
@@ -19,14 +19,14 @@ const App = () => {
 
   return (
     <div>
-      <UserProfile 
+      <UserProfile
         isEditing={isEditing}
-        onEdit={handleEdit} 
-        onSave={handleSave} 
+        onEdit={handleEdit}
+        onSave={handleSave}
         onCancel={handleCancel}
       />
     </div>
   );
-}
+};
 
 export default App;
