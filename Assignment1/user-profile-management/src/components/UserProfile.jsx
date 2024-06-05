@@ -8,9 +8,31 @@ const UserProfile = ({ isEditing, onEdit, onSave, onCancel }) => {
   const [address, setAddress] = useState("1234 South St, Sydney");
   const [profilePicture, setProfilePicture] = useState(defaultProfilePic);
   const [tempProfilePicture, setTempProfilePicture] = useState(profilePicture);
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!username) newErrors.username = "Username is required.";
+    if (!email) {
+      newErrors.email = "Email is required.";
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = "Email address is invalid.";
+    }
+    if (!contactNumber) newErrors.contactNumber = "Contact number is required.";
+    if (!address) newErrors.address = "Address is required.";
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSave = (e) => {
     e.preventDefault();
+    if (!validateForm()) {
+      return;
+    }
+
     setProfilePicture(tempProfilePicture);
     onSave({
       username,
@@ -81,26 +103,34 @@ const UserProfile = ({ isEditing, onEdit, onSave, onCancel }) => {
                 Username:
               </label>
               <input
-                className="w-full p-2 border border-darkBlue rounded bg-lightBlue text-darkBlue font-medium"
+                className={`w-full p-2 border ${
+                  errors.username ? "border-red-500" : "border-darkBlue"
+                } rounded bg-lightBlue text-darkBlue font-medium`}
                 type="text"
                 id="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 readOnly={!isEditing}
               />
+              {errors.username && (
+                <p className="text-red-500">{errors.username}</p>
+              )}
             </div>
             <div className="mb-3">
               <label className="block text-darkBlue font-bold" htmlFor="email">
                 Email:
               </label>
               <input
-                className="w-full p-2 border border-darkBlue rounded bg-lightBlue text-darkBlue font-medium"
+                className={`w-full p-2 border ${
+                  errors.email ? "border-red-500" : "border-darkBlue"
+                } rounded bg-lightBlue text-darkBlue font-medium`}
                 type="email"
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 readOnly={!isEditing}
               />
+              {errors.email && <p className="text-red-500">{errors.email}</p>}
             </div>
             <div className="mb-3">
               <label
@@ -110,13 +140,18 @@ const UserProfile = ({ isEditing, onEdit, onSave, onCancel }) => {
                 Contact Information:
               </label>
               <input
-                className="w-full p-2 border border-darkBlue rounded bg-lightBlue text-darkBlue font-medium"
+                className={`w-full p-2 border ${
+                  errors.contactNumber ? "border-red-500" : "border-darkBlue"
+                } rounded bg-lightBlue text-darkBlue font-medium`}
                 type="text"
                 id="contactNumber"
                 value={contactNumber}
                 onChange={(e) => setContactNumber(e.target.value)}
                 readOnly={!isEditing}
               />
+              {errors.contactNumber && (
+                <p className="text-red-500">{errors.contactNumber}</p>
+              )}
             </div>
             <div className="mb-3">
               <label
@@ -126,13 +161,18 @@ const UserProfile = ({ isEditing, onEdit, onSave, onCancel }) => {
                 Address:
               </label>
               <input
-                className="w-full p-2 border border-darkBlue rounded bg-lightBlue text-darkBlue font-medium"
+                className={`w-full p-2 border ${
+                  errors.address ? "border-red-500" : "border-darkBlue"
+                } rounded bg-lightBlue text-darkBlue font-medium`}
                 type="text"
                 id="address"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 readOnly={!isEditing}
               />
+              {errors.address && (
+                <p className="text-red-500">{errors.address}</p>
+              )}
             </div>
             {isEditing ? (
               <div className="flex justify-start my-4">
