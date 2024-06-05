@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+// Image source: https://openverse.org/image/98c1642b-9f86-49bc-b28c-fdb35adcba7b?q=professionals
+// License: Creative Commons
 import defaultProfilePic from "../assets/phil-rogers.png";
 
 const UserProfile = ({ isEditing, onEdit, onSave, onCancel }) => {
@@ -10,6 +12,9 @@ const UserProfile = ({ isEditing, onEdit, onSave, onCancel }) => {
   const [tempProfilePicture, setTempProfilePicture] = useState(profilePicture);
   const [errors, setErrors] = useState({});
 
+  // Code adapted from "Understanding Forms in React" by Twelve Hashnode
+  // Source: https://twelve.hashnode.dev/understanding-forms-in-react
+  // Modifications: Added custom validation rules for username, email, contact number, and address.
   const validateForm = () => {
     const newErrors = {};
 
