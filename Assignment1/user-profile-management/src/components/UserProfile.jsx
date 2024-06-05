@@ -72,44 +72,63 @@ const UserProfile = ({ isEditing, onEdit, onSave, onCancel }) => {
               </div>
             )}
           </div>
-          <div className="w-full md:w-2/3 flex flex-col pl-8">
+          <div className="w-full md:w-2/3 flex flex-col md:pl-8">
             <div className="mb-3">
-              <label className="block text-darkBlue font-bold">Username:</label>
+              <label
+                className="block text-darkBlue font-bold"
+                htmlFor="username"
+              >
+                Username:
+              </label>
               <input
                 className="w-full p-2 border border-darkBlue rounded bg-lightBlue text-darkBlue font-medium"
                 type="text"
+                id="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 readOnly={!isEditing}
               />
             </div>
             <div className="mb-3">
-              <label className="block text-darkBlue font-bold">Email:</label>
+              <label className="block text-darkBlue font-bold" htmlFor="email">
+                Email:
+              </label>
               <input
                 className="w-full p-2 border border-darkBlue rounded bg-lightBlue text-darkBlue font-medium"
                 type="email"
+                id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 readOnly={!isEditing}
               />
             </div>
             <div className="mb-3">
-              <label className="block text-darkBlue font-bold">
+              <label
+                className="block text-darkBlue font-bold"
+                htmlFor="contactNumber"
+              >
                 Contact Information:
               </label>
               <input
                 className="w-full p-2 border border-darkBlue rounded bg-lightBlue text-darkBlue font-medium"
                 type="text"
+                id="contactNumber"
                 value={contactNumber}
                 onChange={(e) => setContactNumber(e.target.value)}
                 readOnly={!isEditing}
               />
             </div>
             <div className="mb-3">
-              <label className="block text-darkBlue font-bold">Address:</label>
+              <label
+                className="block text-darkBlue font-bold"
+                htmlFor="address"
+              >
+                Address:
+              </label>
               <input
                 className="w-full p-2 border border-darkBlue rounded bg-lightBlue text-darkBlue font-medium"
                 type="text"
+                id="address"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 readOnly={!isEditing}
